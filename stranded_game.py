@@ -11,7 +11,7 @@ def intro(random_planet):
     print_delay(f"You are stranded on the planet {random_planet} all "
                 "around you are giant flesh eating sandworms.")
     print_delay("To the north you see a tower in the disstance.")
-    print_delay("Next to you is your the wreck of your spaceship.")
+    print_delay("Next to you is the wreck of your spaceship.")
     print_delay("The only thing you've got on you is a hoverboard "
                 "without a battery.")
 
@@ -19,9 +19,9 @@ def intro(random_planet):
 def check_input(prompt, option1, option2):
     while True:
         choice = input(prompt).upper()
-        if option1 in choice:
+        if option1 == choice:
             return option1
-        elif option2 in choice:
+        elif option2 == choice:
             return option2
         else:
             print_delay("Please try again.")
@@ -41,7 +41,7 @@ def game_prompt(items):
 
 
 def tower(items):
-    if "hoverboard" in items:
+    if "battery" in items:
         print_delay("You reach the tower and there is a functioning "
                     "rescue portal at the top.")
         print_delay("You enter the coordinates to you planet.")
@@ -65,7 +65,7 @@ def tower(items):
 
 def wreck(items):
     print_delay("You go into the ship.")
-    if "hoverboard" in items:
+    if "battery" in items:
         print_delay("There's nothing more to find here.")
         print_delay("You leave the wreck.")
         game_prompt(items)
@@ -74,7 +74,7 @@ def wreck(items):
         print_delay("Now those nasty sandworms can't locate your "
                     "steps anymore and you can safely travel to the tower.")
         print_delay("You leave the wreck.")
-        items.append("hoverboard")
+        items.append("battery")
         game_prompt(items)
 
 
